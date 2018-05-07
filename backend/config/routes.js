@@ -7,6 +7,7 @@ module.exports = function(server){
 
     const router =express.Router()
 
+    //todas as rotas serão iniciadas para a URL api.
     server.use('/api', router)
 
     //rotas da API
