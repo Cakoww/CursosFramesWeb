@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-module.exports = mongoose.connect('mongodb://localhost/db_finance')
+module.exports = mongoose.connect('mongodb://localhost:27017/db_finance')
 // Exemplo conexao com autenticacao: module.exports = mongoose.connect('mongodb://usuario:senha@localhost:porta/db_finance')
 
 
