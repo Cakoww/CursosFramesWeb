@@ -1,5 +1,6 @@
 angular.module('primeiraApp').factory('gridSystem', [function(){
 
+    //factory criada para facilitar a utilização do grid system do bootstrap digitando apenas números
     function toCssClasses(numbers){
         const cols = numbers ? numbers.split(' '):[]
         let classes = ''

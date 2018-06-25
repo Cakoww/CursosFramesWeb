@@ -1,41 +1,15 @@
 <!-- Componente criado em common/components -->
 <content-header name="Painel" small="0.0.x"></content-header>
 
-<section class="content">
-    <!--Possivel componente box-->
-    <div class="col-xs-4">
-        <div class="small-box bg-green">
-            <div class="inner">
-                <h3>R$ 30</h3>
-                <p>Total de Créditos</p>
-            </div>
-            <div class="icon">
-                    <i class="fa fa-bank"></i>
-            </div>
-        </div>
-    </div>
+<section class="content" ng-controller="DashboardCtrl">
 
-    <div class="col-xs-4">
-        <div class="small-box bg-red">
-            <div class="inner">
-                <h3>R$ 30</h3>
-                <p>Total de Débitos</p>
-            </div>
-            <div class="icon">
-                    <i class="fa fa-credit-card"></i>
-            </div>
-        </div>
-    </div>
+    <!-- Componente criado em common/components -->
+    <value-box grid="4" color-class="bg-green" icon-class="fa fa-bank"
+    value = "R$ {{credit | number:2}}" text="Total de Créditos"></value-box>
 
-    <div class="col-xs-4">
-        <div class="small-box bg-blue">
-            <div class="inner">
-                <h3>R$ 30</h3>
-                <p>Valor Consolidado</p>
-            </div>
-            <div class="icon">
-                    <i class="fa fa-money"></i>
-            </div>
-        </div>
-    </div>
+    <value-box grid="4" color-class="bg-red" icon-class="fa fa-credit-card"
+    value = "R$ {{debt | number:2}}" text="Total de Débitos"></value-box>
+
+    <value-box grid="4" color-class="bg-blue" icon-class="fa fa-money"
+    value = "R$ {{total | number:2}}" text="Valor Consolidado"></value-box>
 </section>
