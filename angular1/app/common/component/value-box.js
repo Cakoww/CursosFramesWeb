@@ -10,6 +10,7 @@
             iconClass: '@',
         },
 
+        //importa o gridSystem, e já executa a função no grid.
         controller:[
             'gridSystem',
             function(gridSystem){
@@ -20,16 +21,16 @@
 
         template: 
             `<div class="{{$ctrl.gridClasses}}">
-            <div class="small-box {{$ctrl.colorClass}}">
-                <div class="inner">
-                    <h3>{{$ctrl.value}}</h3>
-                    <p>{{$ctrl.text}}</p>
+                <div class="small-box {{$ctrl.colorClass}}">
+                    <div class="inner">
+                        <h3>{{$ctrl.value}}</h3>
+                        <p>{{$ctrl.text}}</p>
+                    </div>
+                    <div class="icon">
+                            <i class="{{$ctrl.iconClass}}"></i>
+                    </div>
                 </div>
-                <div class="icon">
-                        <i class="{{$ctrl.iconClass}}"></i>
-                </div>
-            </div>
-        </div>`
+            </div>`
     })
 
 
