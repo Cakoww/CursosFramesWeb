@@ -15,9 +15,9 @@
 
         vm.refresh = function(){
             $http.get(url).then(function(response){
-                vm.billingCycles = {}
+                vm.billingCycle = { credits:[{}] , debts:[{}] }
                 vm.billingCycles = response.data
-                tabs.show(vm, {tabList: true, tabCreate: true}) 
+                tabs.show(vm, { tabList: true, tabCreate: true }) 
 
             })
         }
@@ -30,16 +30,47 @@
             }).catch(function(response){
                 msgs.addError(response.data.errors)
             })
+
         }
 
         vm.showTabUpdate = function(billingCycle){
+
             vm.billingCycle = billingCycle
             tabs.show(vm, {tabUpdate: true})
+
         }
 
         vm.showTabDelete = function(billingCycle){
+
             vm.billingCycle = billingCycle
             tabs.show(vm, {tabDelete: true})
+
+        }
+
+        /*Função responsável pela exclusao do registro, ao clicar na table de delete o vm.billingCycle já foi selecionado */
+        vm.delete = function(){
+
+            const deleteUrl = `${url}/${vm.billingCycle._id}`
+            $http.delete(deleteUrl, vm.billingCycle).success(function(response){
+                vm.refresh()
+                msgs.addSuccess('Operação realizada com sucesso!')
+            }).catch(function(response){
+                msgs.addError(response.data.errors)
+            })
+            
+        }
+
+        /*Função responsável pela alteracao do registro, ao clicar na table de delete o vm.billingCycle já foi selecionado */
+        vm.update = function(){
+
+            const updateUrl = `${url}/${vm.billingCycle._id}`
+            $http.put(updateUrl, vm.billingCycle).success(function(response){
+                vm.refresh()
+                msgs.addSuccess('Operação realizada com sucesso!')
+            }).catch(function(response){
+                msgs.addError(response.data.errors)
+            })
+
         }
 
 
